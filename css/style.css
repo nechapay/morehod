@@ -1,0 +1,46 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.content-container {
+  display: grid;
+  user-select: none;
+  top: 0; left: 0;
+  position: fixed;
+  grid-template-areas:
+          "header header header"
+          "main main main"
+          "footer footer footer";
+  grid-gap: .1vmin;
+  grid-template-rows: 15% 1fr 25%;
+  grid-template-columns: 1fr;
+}
+
+.fill {
+  width: 100%; height: 100%;
+}
+
+.bg {
+  background: grey;
+}
+
+.start-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hide {
+  display: none;
+}
+
+.to-bottom {
+  z-index: -999;
+}
+
+.transparent {
+  opacity: 0;
+}
