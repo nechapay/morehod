@@ -18,7 +18,7 @@ const app = new Vue({
   watch: {
     typeFinished: function(val, oldVal) {
       if(val && val !== oldVal) {
-        this.type(this, this.sub, 1, this.subTitle)
+        this.type(this, this.sub, 1, this.subTitle, 20)
       }
     }
   },
@@ -29,12 +29,12 @@ const app = new Vue({
     start() {
       this.mainTitle.text = ''
       this.subTitle.text = ''
-      this.type(this, this.main, 1, this.mainTitle)
+      this.type(this, this.main, 1, this.mainTitle, 60)
     },
-    type(ctx, text, i, target) {
+    type(ctx, text, i, target, speed) {
       target.text = text.substr(0, i++)
       if (i <= text.length) {
-        setTimeout(() => { ctx.type(ctx, text, i, target) }, 50)
+        setTimeout(() => { ctx.type(ctx, text, i, target, speed) }, speed)
       } else {
         ctx.typeFinished = true
       }
