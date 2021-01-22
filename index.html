@@ -16,22 +16,62 @@
   <script src="lib/lodash.js" type="text/javascript"></script>
 
   <link rel="stylesheet" href="css/style.css" type="text/css">
+  <link rel="stylesheet" href="css/all.min.css" type="text/css">
 
   <link rel="icon" href="img/logo2.png" type="image/x-icon">
   <link rel="shortcut icon" href="img/logo2.png" type="image/x-icon">
 </head>
 
 <body>
+  <audio id="audioFail" preload="auto">
+    <source src="audio/fail.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="audioSuccess" preload="auto">
+    <source src="audio/success.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="audioMorse" preload="auto">
+    <source src="audio/morse.m4a" type="audio/mpeg">
+  </audio>
+  <audio id="audioSos" preload="auto">
+    <source src="audio/sos.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="audioBgm" preload="auto" loop>
+    <source src="audio/bgm.mp3" type="audio/mpeg">
+  </audio>
   <div id="app" class="content-container fill bg">
     <div class="start-page fill" :class="classes.startPage">
-      <div class="title__main">{{ mainTitle.text }}</div>
-      <div class="title__sub">{{ subTitle.text }}</div>
-      <button class="my-button start-button">Начать</button>
+      <div class="start-page__top-part">
+        <div class="title__main">{{ mainTitle.text }}</div>
+        <div class="title__sub">{{ subTitle.text }}</div>
+      </div>
+      <div class="start-page__bottom-part">
+        <a v-if="isStartButtonVisible" class="my-button start-button" @click="startHandle"><span>Начать</span></a>
+        <button class="sound-control" @click="soundControlHandle">
+          <i v-if="isMuted" class="fa fa-volume-mute fa-4x"></i>
+          <i v-else class="fa fa-volume-up fa-4x"></i>
+        </button>
+      </div>
     </div>
-    <div class="header"></div>
-    <div class="main"></div>
-    <div class="footer"></div>
+    <div class="splash-screen fill" :class="classes.splashScreen">
+      <button class="play-button" @click="playHandle()"><i class="fa fa-play-circle fa-4x"></i></button>
+    </div>
+    <div class="header">«МОРЕХОД»</div>
+    <div class="main">
+      <div class="question-container">
+        <div v-html="questions[currentQuestion].text"></div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="answers-container">
+        <div v-if="questions[currentQuestion].type === 'oneOutFour'">
+          <button v-for="answer in questions[currentQuestion].answers"
+                  @click="answerClickHandle(answer.correct)"
+                  :class="classes.answerButton">{{ answer.text }}</button>
+        </div>
+      </div>
+    </div>
   </div>
+  <div class="my-copyright"><b>© Краснодарское ПКУ</b></div>
   <script src="js/main.js"></script>
 </body>
 </html>
