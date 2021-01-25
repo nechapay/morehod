@@ -53,21 +53,27 @@
       </div>
     </div>
     <div class="splash-screen fill" :class="classes.splashScreen">
-      <button class="play-button" @click="playHandle()"><i class="fa fa-play-circle fa-4x"></i></button>
+      <button class="play-button" @click="playHandle"><i class="fa fa-play-circle fa-4x"></i></button>
     </div>
-    <div class="header">«МОРЕХОД»</div>
+    <div class="header">«МОРЕХОД» {{ totalScore }}</div>
     <div class="main">
-      <div class="question-container">
+      <div class="questions-container">
         <div v-html="questions[currentQuestion].text"></div>
       </div>
     </div>
     <div class="footer">
+      <div class="prev-button-container">
+        <a class="my-nav-button" @click="prevHandle" v-if="isPrevVisible"><i class="fa fa-chevron-left fa-5x"></i></a>
+      </div>
       <div class="answers-container">
-        <div v-if="questions[currentQuestion].type === 'oneOutFour'">
-          <button v-for="answer in questions[currentQuestion].answers"
-                  @click="answerClickHandle(answer.correct)"
-                  :class="classes.answerButton">{{ answer.text }}</button>
+        <div class="answers-grid" v-if="questions[currentQuestion].type === 'oneOutFour'">
+            <a class="answer-button" v-for="answer in questions[currentQuestion].answers"
+                    @click="answerClickHandle(answer.correct, answer.id)"
+                    :class="answer.classes">{{ answer.id }}) {{ answer.text }}</a>
         </div>
+      </div>
+      <div class="next-button-container">
+        <a class="my-nav-button" @click="nextHandle" v-if="isNextVisible"><i class="fa fa-chevron-right fa-5x"></i></a>
       </div>
     </div>
   </div>
