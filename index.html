@@ -57,8 +57,9 @@
     </div>
     <div class="header">«МОРЕХОД» {{ totalScore }}</div>
     <div class="main">
-      <div class="questions-container">
-        <div v-html="questions[currentQuestion].text"></div>
+      <div class="questions-container" v-html="questions[currentQuestion].text"></div>
+      <div v-if="questions[currentQuestion].sos">
+        <button class="sos-button" @click="sosButtonClickHandle">SOS</button>
       </div>
     </div>
     <div class="footer">
@@ -67,9 +68,30 @@
       </div>
       <div class="answers-container">
         <div class="answers-grid" v-if="questions[currentQuestion].type === 'oneOutFour'">
-            <a class="answer-button" v-for="answer in questions[currentQuestion].answers"
-                    @click="answerClickHandle(answer.correct, answer.id)"
-                    :class="answer.classes">{{ answer.id }}) {{ answer.text }}</a>
+          <a class="answer-button" v-for="answer in questions[currentQuestion].answers"
+             @click="answerClickHandle(answer.correct, answer.id)"
+             :class="answer.classes">{{ answer.id }}) {{ answer.text }}</a>
+        </div>
+        <div class="drag-answer-container" v-if="questions[currentQuestion].type === 'dragDrop'">
+          <div class="draggable-row" v-for="row in questions[currentQuestion].answers" :key="row.index">
+            <div class="drag-label-grid" v-if="row.labels" slot="header">
+              <div v-for="label in row.labels" class="drag-label">{{label}}</div>
+            </div>
+            <draggable
+                    :list="row.items"
+                    :group="{ name: 'row' }"
+                    class="draggable-inside"
+                    v-if="!isShowDraggableAnswer">
+              <div class="drag-item" :class="item.classes" v-for="item in row.items" :key="item.id">{{ item.text }}</div>
+            </draggable>
+            <div v-else class="draggable-inside">
+              <div class="drag-item" :class="item.classes" v-for="item in questions[currentQuestion].correct" :key="item.id">{{ item.text }}</div>
+            </div>
+          </div>
+          <div class="drag-answer-controls">
+            <a class="answer-button drag" @click="dragAnswerHandle">Проверить</a>
+            <a class="answer-button drag"  :class="classes.showDraggableAnswer" @click="showDraggableAnswer = true">Верный ответ</a>
+          </div>
         </div>
       </div>
       <div class="next-button-container">
