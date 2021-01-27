@@ -10,7 +10,7 @@ const app = new Vue({
       mainTitle: { text: ''},
       subTitle: { text: '' },
       typeFinished: false,
-      startButtonVisible: true,
+      startButtonVisible: false,
       main: 'Образовательная игра «МореХод»',
       sub: 'Игра предназначена для детей 10-15 лет и направлена на развитие ' +
         'познавательных способностей по теме «Российскому флоту быть!»',
@@ -2110,7 +2110,7 @@ const app = new Vue({
           ]
         }
       ],
-      currentQuestion: 28,
+      currentQuestion: 0,
       answers: [],
       totalScore: 0,
       prevVisible: false,
