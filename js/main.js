@@ -27,8 +27,12 @@ const app = new Vue({
         },
         showDraggableAnswer: {
           'hide': true
+        },
+        viewer: {
+          slide: false
         }
       },
+      viewerContent: '',
       muted: false,
       bgmAudio: 'audioBgm',
       questions: [
@@ -89,8 +93,8 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 3,
           sos: false,
-          text: `<div class="question-container"><div class="text-container w-50">Что означает выражение «Бить склянки»?</div>
-                <div class="image-container w-50"><img src="img/002.jpg"></div></div>`,
+          text: `<div class="question-container"><div class="text-container w-60">Что означает выражение «Бить склянки»?</div>
+                <div class="image-container w-40"><img src="img/002.jpg"></div></div>`,
           answers: [
             {
               id: 1,
@@ -456,7 +460,8 @@ const app = new Vue({
               text: 'контр-адмирал',
               classes: {
                 correct: true,
-                incorrect: false
+                incorrect: false,
+                'drag-item': true
               }
             },
             {
@@ -464,7 +469,8 @@ const app = new Vue({
               text: 'вице-адмирал',
               classes: {
                 correct: true,
-                incorrect: false
+                incorrect: false,
+                'drag-item': true
               }
             },
             {
@@ -472,7 +478,8 @@ const app = new Vue({
               text: 'адмирал',
               classes: {
                 correct: true,
-                incorrect: false
+                incorrect: false,
+                'drag-item': true
               }
             },
             {
@@ -480,7 +487,8 @@ const app = new Vue({
               text: 'адмирал флота',
               classes: {
                 correct: true,
-                incorrect: false
+                incorrect: false,
+                'drag-item': true
               }
             }
           ],
@@ -494,7 +502,8 @@ const app = new Vue({
                   text: 'адмирал флота',
                   classes: {
                     correct: false,
-                    incorrect: false
+                    incorrect: false,
+                    'drag-item': true
                   }
                 },
                 {
@@ -502,7 +511,8 @@ const app = new Vue({
                   text: 'контр-адмирал',
                   classes: {
                     correct: false,
-                    incorrect: false
+                    incorrect: false,
+                    'drag-item': true
                   }
                 },
                 {
@@ -510,7 +520,8 @@ const app = new Vue({
                   text: 'адмирал',
                   classes: {
                     correct: false,
-                    incorrect: false
+                    incorrect: false,
+                    'drag-item': true
                   }
                 },
                 {
@@ -518,7 +529,8 @@ const app = new Vue({
                   text: 'вице-адмирал',
                   classes: {
                     correct: false,
-                    incorrect: false
+                    incorrect: false,
+                    'drag-item': true
                   }
                 }
               ]
@@ -538,7 +550,8 @@ const app = new Vue({
               text: 'мичман',
               classes: {
                 correct: true,
-                incorrect: false
+                incorrect: false,
+                'drag-item': true
               }
             },
             {
@@ -546,7 +559,8 @@ const app = new Vue({
               text: 'капитан третьего ранга',
               classes: {
                 correct: true,
-                incorrect: false
+                incorrect: false,
+                'drag-item': true
               }
             },
             {
@@ -554,7 +568,8 @@ const app = new Vue({
               text: 'капитан первого ранга',
               classes: {
                 correct: true,
-                incorrect: false
+                incorrect: false,
+                'drag-item': true
               }
             },
             {
@@ -562,7 +577,8 @@ const app = new Vue({
               text: 'адмирал',
               classes: {
                 correct: true,
-                incorrect: false
+                incorrect: false,
+                'drag-item': true
               }
             }
           ],
@@ -576,7 +592,8 @@ const app = new Vue({
                   text: 'капитан первого ранга',
                   classes: {
                     correct: false,
-                    incorrect: false
+                    incorrect: false,
+                    'drag-item': true
                   }
                 },
                 {
@@ -584,7 +601,8 @@ const app = new Vue({
                   text: 'мичман',
                   classes: {
                     correct: false,
-                    incorrect: false
+                    incorrect: false,
+                    'drag-item': true
                   }
                 },
                 {
@@ -592,7 +610,8 @@ const app = new Vue({
                   text: 'капитан третьего ранга',
                   classes: {
                     correct: false,
-                    incorrect: false
+                    incorrect: false,
+                    'drag-item': true
                   }
                 },
                 {
@@ -600,7 +619,8 @@ const app = new Vue({
                   text: 'адмирал',
                   classes: {
                     correct: false,
-                    incorrect: false
+                    incorrect: false,
+                    'drag-item': true
                   }
                 }
               ]
@@ -704,7 +724,7 @@ const app = new Vue({
             'Участвовал в русско-японской войне, в том числе в самом продолжительном ее сражении – обороне ' +
             'Порт-Артура. В Первую мировую войну командовал дивизией миноносных кораблей Балтийского флота, ' +
             'а с 16-17-х годов – Черноморским флотом».',
-          text: `<div class="question-container--drag"><div class="drag-text-container">7. Кто из представленных адмиралов 
+          text: `<div class="question-container--drag"><div class="drag-text-container">Кто из представленных адмиралов 
                 был еще и выдающимся ученым-океанографом, одним из крупнейших полярных исследователей, 
                 участником трех полярных экспедиций, а также автором монографии «Какой нужен России флот»?<br>
                 Отвечая на данный вопрос, вы можете воспользоваться подсказкой, нажав кнопку <b>SOS</b>, после чего 
@@ -714,10 +734,10 @@ const app = new Vue({
                        <div class="drag-question-grid__label"><span>2</span></div>
                        <div class="drag-question-grid__label"><span>3</span></div>
                        <div class="drag-question-grid__label"><span>4</span></div>
-                       <div class="drag-question-grid__image"><img src="img/107-1.jpg"></div>
-                       <div class="drag-question-grid__image"><img src="img/107-2.jpg"></div>
-                       <div class="drag-question-grid__image"><img src="img/107-3.jpg"></div>
-                       <div class="drag-question-grid__image"><img src="img/107-4.jpg"></div>
+                       <div class="drag-question-grid__image"><img class="w-70" src="img/107-1.jpg"></div>
+                       <div class="drag-question-grid__image"><img class="w-80" src="img/107-2.jpg"></div>
+                       <div class="drag-question-grid__image"><img class="w-70" src="img/107-3.jpg"></div>
+                       <div class="drag-question-grid__image"><img class="w-70" src="img/107-4.jpg"></div>
                     </div></div>`,
           answers: [
             {
@@ -753,9 +773,1344 @@ const app = new Vue({
               }
             }
           ]
+        },
+        // 15 question
+        {
+          type: 'oneOutFour',
+          index: 17,
+          sosText: '«Aдмиpaлтeйcтвo aнглийcкoгo флoтa издaлo пpикaз, дaтиpoвaнный 1776 гoдoм, в кoтopoм ' +
+            'пpeдпиcывaлocь в oбязaтeльнoм пopядкe вo вce кaнaты гocyдapcтвeннoй бpитaнcкoй флoтилии ' +
+            'вплeтaть ниткy кpacнoгo цвeтa. Taким знaкoм былo peшeнo oтличaть гocyдapcтвeнныe кopaбли oт ' +
+            'чacтныx. Из кaнaтa c кpacнoй нитью нeльзя былo выдepнyть нить, нe paзмoтaв пpи этoм вecь кaнaт. ' +
+            'Cтoль жe нeвoзмoжным cтaнoвилocь и oтpeзaниe кycкa кaнaтa или oтмaтывaниe яpкoй нитки. Дeлo в тoм, ' +
+            'чтo пapycныe cyдa тoгo вpeмeни имeли нeвepoятнo бoльшoe кoличecтвo кaнaтныx cплeтeний, кoтopыe ' +
+            '«пpoнизывaли» coбoй бyквaльнo вecь кopaбль. A ecли пpeдcтaвить кpacнyю ниткy пpoxoдящeй чepeз вce ' +
+            'мнoгoчиcлeнныe кaнaты кopaбля, тo мoжнo пoнять пepвoнaчaльный eмкий cмыcл этoй фpaзы бpитaнcкиx мopякoв. ' +
+            'Ho блaгoдapя нeoжидaнным пoвopoтaм cyдьбы фpaзa пpoчнo oceлa нe в aнглийcкoм языкe, a в нeмeцкoм. ' +
+            'Heмeцкий пиcaтeль Иoгaнн Гётe иcпoльзoвaл выpaжeниe aнглийcкoгo флoтa в cвoeм poмaнe «Poдcтвeнныe ' +
+            'нaтypы». Oн yпoтpeбил фpaзeoлoгизм в cвязи c мopcким кaнaтoм. И oднoвpeмeннo влoжил в нeгo пepeнocный ' +
+            'cмыcл. Пocкoлькy пиcaтeль был пoпyляpeн, a eгo пpoизвeдeния шиpoкo извecтны, тo выpaжeниe пpo кpacнyю ' +
+            'нить имeлo нeвepoятный ycпex». ',
+          sos: true,
+          text: `<div class="question-container"><div class="text-container w-60">
+                 Появление выражения <b>«проходит красной нитью»</b> имеет интересную историю. Онo oзнaчaeт 
+                 «нeчтo ocнoвнoe, вeдyщee, глaвнoe». Bыpaжeниe <b>«пpoxoдит кpacнoй нитью»</b> мoжнo нaйти 
+                 ceгoдня вo мнoгиx языкax Eвpoпы. Ecли изyчaть пpoиcxoждeниe дaннoй фpaзы, иcтoки пpивeдyт нac к…</div>
+                 <div class="image-container w-40"><img src="img/109.jpg"></div></div>`,
+          answers: [
+            {
+              id: 1,
+              text: 'войне с Наполеоном',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 2,
+              text: 'бpитaнcкoмy cyдoxoдcтвy',
+              correct: true,
+              classes: {
+                correct: false
+              }
+            },
+            {
+              id: 3,
+              text: 'истории книгопечатанья',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 4,
+              text: 'реформам Петра I ',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            }
+          ]
+        },
+        // 16 question
+        {
+          type: 'oneOutFour',
+          index: 18,
+          sos: false,
+          text: `<div class="question-container"><div class="text-container w-100">Как называют бывалого моряка:</div></div>`,
+          answers: [
+            {
+              id: 1,
+              text: 'боцман',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 2,
+              text: 'морской волк',
+              correct: true,
+              classes: {
+                correct: false
+              }
+            },
+            {
+              id: 3,
+              text: 'пират',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 4,
+              text: 'кракен',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            }
+          ]
+        },
+        // 17 question
+        {
+          type: 'oneOutFour',
+          index: 19,
+          sosText: '«Континентальный шельф Российской Федерации (также называемый Российский континентальный шельф) ' +
+            '— континентальный шельф. Геологически определяется как весь континентальный шельф, примыкающий к ' +
+            'побережью России. В международном же праве Конвенция ООН по морскому праву более узко определяет ' +
+            'протяжённость шельфа как океанское дно и недра подводных районов, которые находятся под суверенитетом ' +
+            'России. Шельф Сибири в Северном Ледовитом океане является самым крупным (и наименее изученным) из ' +
+            'шельфов, регион имеет стратегическое значение из-за запасов нефти и природного газа. Другие части ' +
+            'российского шельфа, как правило, названы в честь соответствующих морей: Баренцевоморский шельф ' +
+            '(шельф Баренцева моря), Чукотский шельф (шельф Чукотского моря) и др. За исключением внутренних морей ' +
+            'России, эти шельфы используются совместно с другими странами, которые соседствуют на соответствующих ' +
+            'морях. Например, шельф Чукотского моря разделён между Россией и США, в соответствии с Соглашением между ' +
+            'СССР и США о линии разграничения морских пространств 1990 года. Площадь континентального шельфа, ' +
+            'находящегося под юрисдикцией РФ, составляет около 5 млн км², что составляет около 1/5 площади шельфа ' +
+            'Мирового океана».',
+          sos: true,
+          text: `<div class="question-container"><div class="text-container w-70">Каким образом в международном  
+                праве Конвенции ООН по морскому праву  определяется протяжённость <b>континентального 
+                шельфа Российской Федерации:</b></div>
+                <div class="image-container w-30"><img src="img/110.png"></div></div>`,
+          answers: [
+            {
+              id: 1,
+              text: 'как океанское дно и недра подводных районов',
+              correct: true,
+              classes: {
+                correct: false
+              }
+            },
+            {
+              id: 2,
+              text: 'как прибрежная зона',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 3,
+              text: 'граница проходит по суше',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 4,
+              text: 'граница проходит по морю',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            }
+          ]
+        },
+        // 3rd stage
+        {
+          type: 'stage',
+          index: 20,
+          sos: false,
+          text: `<span class="stage">III ЭТАП «Морские узлы» <br> 10 - вопросов</span><img src="img/200.png">`,
+          answers: []
+        },
+        // 18 question
+        {
+          type: 'dragDrop',
+          index: 21,
+          sos: false,
+          text: `<div class="question-container">
+                    <div class="text-container">Соотнесите фразеологические обороты с их значениями:<br>
+                    <hr>
+                    А. Разбираться в сложном сплетении причин, стечении обстоятельств.<br>
+                    Б. Смело, решительно и сразу же разрешать какую-либо очень трудную задачу, 
+                    находить посредством чего-либо выход из трудной ситуации)<br>
+                    В. Постараться хорошенько запомнить что-либо.<br>
+                    Г. Подчинить себе кого-либо, заставить быть покорным.</div>
+                 </div>`,
+          correct: [
+            {
+              id: 4,
+              text: '«Распутывать узел»',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item': true
+              }
+            },
+            {
+              id: 1,
+              text: '«Разрубать гордиев узел»',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item': true
+              }
+            },
+            {
+              id: 3,
+              text: '«Завязать на память узелок»',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item': true
+              }
+            },
+            {
+              id: 2,
+              text: '«Завязать в узел»',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item': true
+              }
+            }
+          ],
+          answers: [
+            {
+              index: 1,
+              labels: ['А', 'Б', 'В', 'Г'],
+              items: [
+                {
+                  id: 1,
+                  text: '«Разрубать гордиев узел»',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item': true
+                  }
+                },
+                {
+                  id: 2,
+                  text: '«Завязать в узел»',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item': true
+                  }
+                },
+                {
+                  id: 3,
+                  text: '«Завязать на память узелок»',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item': true
+                  }
+                },
+                {
+                  id: 4,
+                  text: '«Распутывать узел»',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item': true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        // 19 question
+        {
+          type: 'oneOutFour',
+          index: 22,
+          sos: false,
+          text: `<div class="question-container"><div class="text-container w-100">Продолжите выражение «Плавали – …!»:</div></div>`,
+          answers: [
+            {
+              id: 1,
+              text: 'сдюжим',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 2,
+              text: 'сможем',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 3,
+              text: 'видели',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 4,
+              text: 'знаем',
+              correct: true,
+              classes: {
+                correct: false
+              }
+            }
+          ]
+        },
+        // 20 question
+        {
+          type: 'oneOutFour',
+          index: 23,
+          sos: false,
+          text: `<div class="question-container--drag"><div class="drag-text-container">Бог морей  в древнеримской мифологии:</div>
+                <div class="drag-question-grid">
+                       <div class="drag-question-grid__label"><span>Марс</span></div>
+                       <div class="drag-question-grid__label"><span>Нептун</span></div>
+                       <div class="drag-question-grid__label"><span>Юпитер</span></div>
+                       <div class="drag-question-grid__label"><span>Вулкан</span></div>
+                       <div class="drag-question-grid__image"><img class="w-70" src="img/203-1.jpg"></div>
+                       <div class="drag-question-grid__image"><img class="w-80" src="img/203-2.jpg"></div>
+                       <div class="drag-question-grid__image"><img class="w-70" src="img/203-3.jpg"></div>
+                       <div class="drag-question-grid__image"><img class="w-70" src="img/203-4.jpg"></div>
+                    </div></div>`,
+          answers: [
+            {
+              id: 1,
+              text: 'Марс',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 2,
+              text: 'Нептун',
+              correct: true,
+              classes: {
+                correct: false
+              }
+            },
+            {
+              id: 3,
+              text: 'Юпитер',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 4,
+              text: 'Вулкан',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            }
+          ]
+        },
+        // 21 question
+        {
+          type: 'dragDrop',
+          index: 24,
+          sos: false,
+          text: `<div class="question-container">
+                    <div class="text-container">Собери поговорку</div>
+                 </div>`,
+          correct: [
+            {
+              id: 5,
+              text: 'без',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            },
+            {
+              id: 3,
+              text: 'смелости',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            },
+            {
+              id: 1,
+              text: 'не',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            },
+            {
+              id: 2,
+              text: 'возьмешь',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            },
+            {
+              id: 4,
+              text: 'крепости',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            }
+          ],
+          answers: [
+            {
+              index: 1,
+              items: [
+                {
+                  id: 1,
+                  text: 'не',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                },
+                {
+                  id: 2,
+                  text: 'возьмешь',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                },
+                {
+                  id: 3,
+                  text: 'смелости',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                },
+                {
+                  id: 4,
+                  text: 'крепости',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                },
+                {
+                  id: 5,
+                  text: 'без',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        // 22 question
+        {
+          type: 'dragDrop',
+          index: 25,
+          sos: false,
+          text: `<div class="question-container">
+                    <div class="text-container">Собери поговорку</div>
+                 </div>`,
+          correct: [
+            {
+              id: 5,
+              text: 'русское',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            },
+            {
+              id: 2,
+              text: 'сердце',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            },
+            {
+              id: 1,
+              text: 'крепче',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            },
+            {
+              id: 3,
+              text: 'вражеской',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            },
+            {
+              id: 4,
+              text: 'брони',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            }
+          ],
+          answers: [
+            {
+              index: 1,
+              items: [
+                {
+                  id: 1,
+                  text: 'крепче',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                },
+                {
+                  id: 2,
+                  text: 'сердце',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                },
+                {
+                  id: 3,
+                  text: 'вражеской',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                },
+                {
+                  id: 4,
+                  text: 'брони',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                },
+                {
+                  id: 5,
+                  text: 'русское',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        // 22 question
+        {
+          type: 'dragDrop',
+          index: 26,
+          sos: false,
+          text: `<div class="question-container">
+                    <div class="text-container">Собери поговорку</div>
+                 </div>`,
+          correct: [
+            {
+              id: 3,
+              text: 'кто',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            },
+            {
+              id: 7,
+              text: 'моря',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            },
+            {
+              id: 6,
+              text: 'боится,',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            },
+            {
+              id: 1,
+              text: 'тому',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            },
+            {
+              id: 4,
+              text: 'в',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            },
+            {
+              id: 5,
+              text: 'луже',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            },
+            {
+              id: 2,
+              text: 'сидеть',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            }
+          ],
+          answers: [
+            {
+              index: 1,
+              items: [
+                {
+                  id: 1,
+                  text: 'тому',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                },
+                {
+                  id: 2,
+                  text: 'сидеть',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                },
+                {
+                  id: 3,
+                  text: 'кто',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                },
+                {
+                  id: 4,
+                  text: 'в',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                },
+                {
+                  id: 5,
+                  text: 'луже',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                },
+                {
+                  id: 6,
+                  text: 'боится,',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                },
+                {
+                  id: 7,
+                  text: 'моря',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        // 23 question
+        {
+          type: 'dragDrop',
+          index: 27,
+          sos: false,
+          text: `<div class="question-container">
+                    <div class="text-container">Собери поговорку</div>
+                 </div>`,
+          correct: [
+            {
+              id: 4,
+              text: 'человек',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            },
+            {
+              id: 1,
+              text: 'без',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            },
+            {
+              id: 2,
+              text: 'Родины,',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            },
+            {
+              id: 3,
+              text: 'что',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            },
+            {
+              id: 7,
+              text: 'соловей',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            },
+            {
+              id: 5,
+              text: 'без',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            },
+            {
+              id: 6,
+              text: 'песни',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item--word': true
+              }
+            }
+          ],
+          answers: [
+            {
+              index: 1,
+              items: [
+                {
+                  id: 1,
+                  text: 'без',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                },
+                {
+                  id: 2,
+                  text: 'Родины,',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                },
+                {
+                  id: 3,
+                  text: 'что',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                },
+                {
+                  id: 4,
+                  text: 'человек',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                },
+                {
+                  id: 5,
+                  text: 'без',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                },
+                {
+                  id: 6,
+                  text: 'песни',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                },
+                {
+                  id: 7,
+                  text: 'соловей',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item--word': true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        // 24 question
+        {
+          type: 'oneOutFour',
+          index: 28,
+          sos: false,
+          text: `<div class="question-container"><div class="text-container w-100">Какое море не относится к бассейну 
+                Северного Ледовитого океана?</div></div>`,
+          answers: [
+            {
+              id: 1,
+              text: 'Баренцево',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 2,
+              text: 'Карское',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 3,
+              text: 'Лаптевых',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 4,
+              text: 'Северное',
+              correct: true,
+              classes: {
+                correct: false
+              }
+            }
+          ]
+        },
+        // 25 question
+        {
+          type: 'dragDrop',
+          index: 29,
+          sos: false,
+          text: `<div class="question-container--drag">
+                    <div class="drag-text-container fs-2">Подберите название к определениям:
+                    <hr>
+                    A: ... - военное парусно-гребное судно с небольшим количеством пушек. Боле маневренное, 
+                    чем другие суда 17 столетия. Может плыть в безветренную погоду. Именно ему приписывают 
+                    такие нововведения, как таран и «система двойного весельного ряда».<br>
+                    Б: ... — это крупногабаритный деревянный многопалубный парусник 16−18 столетия с довольно 
+                    большим артиллерийским вооружением, который использовался в торговых и военных целях. 
+                    Свою популярность галеоны получили как судна, перевозившие сокровища Испании и в битве 
+                    Великой Армады, которая произошла в 1589 г.<br>
+                    В: ... являлась любимым судном пиратов. Боевой силы вполне хватало для захвата 
+                    торговых кораблей, а хорошая маневренность и быстроходность помогала уйти от погони. 
+                    Если кто и мог преодолеть сложные места между рифами, то это только...<br>
+                    Г: ... - боевое трехмачтовое судно с полным парусным оснащением и одной палубой для орудий. 
+                    Это один из самых разнообразных по своим характеристикам типов парусников. Происхождение 
+                    фрегаты начали от быстроходных и легких судов, применявшихся для плавания в проливе Ла-Манш 
+                    примерно в конце 17 столетия.
+                    </div>
+                    <div class="drag-question-grid">
+                       <div class="drag-question-grid__label"><span>Бригантина</span></div>
+                       <div class="drag-question-grid__label"><span>Галеон</span></div>
+                       <div class="drag-question-grid__label"><span>Фрегат</span></div>
+                       <div class="drag-question-grid__label"><span>Галера</span></div>
+                       <div class="drag-question-grid__image"><img src="img/206-1.jpg"></div>
+                       <div class="drag-question-grid__image"><img src="img/206-2.jpg"></div>
+                       <div class="drag-question-grid__image"><img src="img/206-3.jpg"></div>
+                       <div class="drag-question-grid__image"><img src="img/206-4.jpg"></div>
+                    </div>
+                 </div>`,
+          correct: [
+            {
+              id: 4,
+              text: 'Галера',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item': true
+              }
+            },
+            {
+              id: 2,
+              text: 'Галеон',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item': true
+              }
+            },
+            {
+              id: 1,
+              text: 'Бригантина',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item': true
+              }
+            },
+            {
+              id: 3,
+              text: 'Фрегат',
+              classes: {
+                correct: true,
+                incorrect: false,
+                'drag-item': true
+              }
+            }
+          ],
+          answers: [
+            {
+              index: 1,
+              labels: ['А', 'Б', 'В', 'Г'],
+              items: [
+                {
+                  id: 1,
+                  text: 'Бригантина',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item': true
+                  }
+                },
+                {
+                  id: 2,
+                  text: 'Галеон',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item': true
+                  }
+                },
+                {
+                  id: 3,
+                  text: 'Фрегат',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item': true
+                  }
+                },
+                {
+                  id: 4,
+                  text: 'Галера',
+                  classes: {
+                    correct: false,
+                    incorrect: false,
+                    'drag-item': true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        // 26 question
+        {
+          type: 'oneOutFour',
+          index: 30,
+          sos: false,
+          text: `<div class="question-container"><div class="text-container w-50">Что не использовалось 
+                при общении кораблей друг с другом:</div>
+                <div class="image-container w-50"><img src="img/207.jpg"></div></div>`,
+          answers: [
+            {
+              id: 1,
+              text: 'семафорные флажки',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 2,
+              text: 'азбука Морзе',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 3,
+              text: 'сигнальные флаги',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 4,
+              text: 'выстрел орудия',
+              correct: true,
+              classes: {
+                correct: false
+              }
+            }
+          ]
+        },
+        // 27 question
+        {
+          type: 'oneOutFour',
+          index: 31,
+          sos: false,
+          text: `<div class="question-container"><div class="text-container w-50">Нижняя горизонтальная 
+                балка или балки, проходящие посередине днища судна от носовой до кормовой 
+                его оконечности, и служащие для обеспечения прочности корпуса судна и обеспечения 
+                остойчивости называется:</div>
+                <div class="image-container w-50"><img src="img/208.jpg"></div></div>`,
+          answers: [
+            {
+              id: 1,
+              text: 'клюв',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 2,
+              text: 'кий',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 3,
+              text: 'киль',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 4,
+              text: 'куль',
+              correct: true,
+              classes: {
+                correct: false
+              }
+            }
+          ]
+        },
+        // 28 question
+        {
+          type: 'oneOutFour',
+          index: 32,
+          sos: false,
+          text: `<div class="question-container"><div class="text-container w-100">Скорость корабля измеряется</div>
+                </div>`,
+          answers: [
+            {
+              id: 1,
+              text: 'в углах',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 2,
+              text: 'в устах',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 3,
+              text: 'в узлах',
+              correct: true,
+              classes: {
+                correct: false
+              }
+            },
+            {
+              id: 4,
+              text: 'в узелках',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            }
+          ]
+        },
+        // 28 question
+        {
+          type: 'oneOutFour',
+          index: 32,
+          sos: false,
+          text: `<div class="question-container"><div class="text-container w-100">Рубка на корабле – это…</div>
+                </div>`,
+          answers: [
+            {
+              id: 1,
+              text: 'жилое помещение для команды корабля.',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 2,
+              text: 'название снасти',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 3,
+              text: 'способ ведения боя',
+              correct: true,
+              classes: {
+                correct: false
+              }
+            },
+            {
+              id: 4,
+              text: 'место нахождения капитана',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            }
+          ]
+        },
+        // 4th stage
+        {
+          type: 'stage',
+          index: 33,
+          sos: false,
+          text: `<span class="stage">ФИНАЛ «Попутного ветра!» <br> 3 - вопроса</span>`,
+          answers: []
+        },
+        // 29 question
+        {
+          type: 'oneOutFour',
+          index: 34,
+          sos: false,
+          text: `<div class="question-container"><div class="text-container w-50">Участвовал в Крымской войне, 
+                оборонял Севастополь, командовал батареей на 4-м бастионе:</div>
+                <div class="image-container w-50"><img src="img/301.png"></div></div>`,
+          answers: [
+            {
+              id: 1,
+              text: 'Л.Н. Толстой',
+              correct: true,
+              classes: {
+                correct: false
+              }
+            },
+            {
+              id: 2,
+              text: 'А.Н. Толстой',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 3,
+              text: 'А.А. Фет',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 4,
+              text: 'А.Н. Островский',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            }
+          ]
+        },
+        // 29 question
+        {
+          type: 'oneOutFour',
+          index: 35,
+          sos: false,
+          text: `<div class="question-container"><div class="text-container w-50">Звуковой сигнал 
+                маяка применялся:</div>
+                <div class="image-container w-50"><img src="img/301.png"></div></div>`,
+          answers: [
+            {
+              id: 1,
+              text: 'постоянно',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 2,
+              text: 'периодически с равным интервалом по времени',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 3,
+              text: 'при нулевой видимости в тумане',
+              correct: true,
+              classes: {
+                correct: false
+              }
+            },
+            {
+              id: 4,
+              text: '3 раза в сутки (утром, днем, вечером)',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            }
+          ]
+        },
+        // 30 question
+        {
+          type: 'oneOutFour',
+          index: 36,
+          sos: false,
+          text: `<div class="question-container"><div class="text-container w-50">3. Какое значение 
+                имеет выражение «Семь футов под килем»? </div>
+                <div class="image-container w-50"><img src="img/303.jpg"></div></div>`,
+          answers: [
+            {
+              id: 1,
+              text: 'прогноз погоды для уходящих в море судов',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 2,
+              text: 'пожелание доброго пути судну или человеку, уходящему в море',
+              correct: true,
+              classes: {
+                correct: false
+              }
+            },
+            {
+              id: 3,
+              text: 'мера длины киля судна',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            {
+              id: 4,
+              text: 'ничего: искусственно созданное выражение',
+              correct: false,
+              classes: {
+                incorrect: false
+              }
+            },
+            // end video
+            {
+              type: 'stage',
+              index: 37,
+              sos: false,
+              text: `<video width="400" height="300" controls="controls">
+                       <source src="video/final.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                    </video>`,
+              answers: []
+            },
+          ]
         }
       ],
-      currentQuestion: 0,
+      currentQuestion: 28,
       answers: [],
       totalScore: 0,
       prevVisible: false,
@@ -779,6 +2134,9 @@ const app = new Vue({
     },
     isShowDraggableAnswer() {
       return this.showDraggableAnswer
+    },
+    isSosButtonVisible() {
+      return !_.isNil(this.questions[this.currentQuestion].sos) && this.questions[this.currentQuestion].sos
     }
   },
   watch: {
@@ -799,6 +2157,7 @@ const app = new Vue({
       if(!_.isNil(this.answers[this.currentQuestion])) {
         this.preventAnswers = true
       }
+      this.showDraggableAnswer = false
     },
     nextVisible: function (val, oldVal) {
       if(this.currentQuestion === this.questions.length - 1) {
@@ -822,6 +2181,9 @@ const app = new Vue({
         playAudio(this.bgmAudio)
         playAudio('audioMorse')
       }
+    },
+    deniedHandle() {
+      window.close()
     },
     type(ctx, text, i, target, speed) {
       target.text = text.substr(0, i++)
@@ -923,9 +2285,14 @@ const app = new Vue({
     stopSounds() {
       stopAudio('audioSuccess')
       stopAudio('audioFail')
+      stopAudio('audioSos')
     },
     sosButtonClickHandle() {
-      console.log(this.questions[this.currentQuestion].sosText)
+      // playAudio('audioSos')
+      this.preventAnswers = true
+      this.nextVisible = true
+      this.viewerContent = this.questions[this.currentQuestion].sosText
+      this.classes.viewer.slide = true
     }
   }
 })

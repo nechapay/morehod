@@ -53,13 +53,19 @@
       </div>
     </div>
     <div class="splash-screen fill" :class="classes.splashScreen">
-      <button class="play-button" @click="playHandle"><i class="fa fa-play-circle fa-4x"></i></button>
+      <div class="splash-text">
+        <span>Приложение запрашивает разрешение на воспроизведение звука и видео</span>
+      </div>
+      <div class="splash-controls">
+        <a class="answer-button drag incorrect" @click="deniedHandle">Отклонить</a>
+        <a class="answer-button drag correct" @click="playHandle">Разрешить</a>
+      </div>
     </div>
     <div class="header">«МОРЕХОД» {{ totalScore }}</div>
     <div class="main">
       <div class="questions-container" v-html="questions[currentQuestion].text"></div>
-      <div v-if="questions[currentQuestion].sos">
-        <button class="sos-button" @click="sosButtonClickHandle">SOS</button>
+      <div v-if="isSosButtonVisible" class="sos-button-container">
+        <a class="answer-button sos-button incorrect" @click="sosButtonClickHandle">SOS</a>
       </div>
     </div>
     <div class="footer">
@@ -82,10 +88,10 @@
                     :group="{ name: 'row' }"
                     class="draggable-inside"
                     v-if="!isShowDraggableAnswer">
-              <div class="drag-item" :class="item.classes" v-for="item in row.items" :key="item.id">{{ item.text }}</div>
+              <div :class="item.classes" v-for="item in row.items" :key="item.id">{{ item.text }}</div>
             </draggable>
             <div v-else class="draggable-inside">
-              <div class="drag-item" :class="item.classes" v-for="item in questions[currentQuestion].correct" :key="item.id">{{ item.text }}</div>
+              <div :class="item.classes" v-for="item in questions[currentQuestion].correct" :key="item.id">{{ item.text }}</div>
             </div>
           </div>
           <div class="drag-answer-controls">
@@ -97,6 +103,13 @@
       <div class="next-button-container">
         <a class="my-nav-button" @click="nextHandle" v-if="isNextVisible"><i class="fa fa-chevron-right fa-5x"></i></a>
       </div>
+    </div>
+    <div class="viewer-container" :class="classes.viewer">
+      <div class="viewer-content">
+        <div class="viewer-header">Справка</div>
+        <div v-html="viewerContent"></div>
+      </div>
+      <a class="answer-button drag sos-control" @click="classes.viewer.slide = false">Ok</a>
     </div>
   </div>
   <div class="my-copyright"><b>© Краснодарское ПКУ</b></div>
