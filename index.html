@@ -61,9 +61,25 @@
         <a class="answer-button drag correct" @click="playHandle">Разрешить</a>
       </div>
     </div>
-    <div class="header">«МОРЕХОД» {{ totalScore }}</div>
+    <div class="header">«МОРЕХОД»</div>
     <div class="main">
+      <div class="main__left-side">
+        <div class="info-card">
+          <div class="info-card__header">Верных ответов</div>
+          <div class="info-card__body">{{ correctAnswers }}</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card__header">Неверных ответов</div>
+          <div class="info-card__body">{{ incorrectAnswers }}</div>
+        </div>
+      </div>
       <div class="questions-container" v-html="questions[currentQuestion].text"></div>
+      <div class="main__right-side">
+        <div class="info-card">
+          <div class="info-card__header">Счёт</div>
+          <div class="info-card__body">{{ totalScore }}</div>
+        </div>
+      </div>
       <div v-if="isSosButtonVisible" class="sos-button-container">
         <a class="answer-button sos-button incorrect" @click="sosButtonClickHandle">SOS</a>
       </div>

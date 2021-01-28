@@ -7,8 +7,8 @@ const app = new Vue({
   // },
   data() {
     return {
-      mainTitle: { text: ''},
-      subTitle: { text: '' },
+      mainTitle: {text: ''},
+      subTitle: {text: ''},
       typeFinished: false,
       startButtonVisible: false,
       main: 'Образовательная игра «МореХод»',
@@ -41,7 +41,12 @@ const app = new Vue({
           type: 'stage',
           index: 1,
           sos: false,
-          text: `<span class="stage">I ЭТАП «Поднять якорь!»<br>7 - вопросов</span><img src="img/000v2.jpg">`,
+          text: `<div class="stage-container">
+                  <div class="stage-text"><span class="stage">I ЭТАП «Поднять якорь!»<br>7 - вопросов</span></div>
+                  <div class="stage-image">
+                    <img src="img/000v2.jpg">
+                  </div>
+                 </div>`,
           answers: []
         },
         // 1st question
@@ -265,7 +270,7 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 7,
           sos: false,
-          text: `<div class="question-container"><div class="text-container w-70">6. Слово «юнга» переводится с 
+          text: `<div class="question-container"><div class="text-container w-70">Слово «юнга» переводится с 
                 немецкого языка (Junge) как:</div>
                 <div class="image-container w-30"><img src="img/006.gif"></div></div>`,
           answers: [
@@ -308,7 +313,7 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 8,
           sos: false,
-          text: `<div class="question-container"><div class="text-container w-70">7. Подберите к 
+          text: `<div class="question-container"><div class="text-container w-70">Подберите к 
                 слову «шкипер» синоним:</div><div class="image-container w-30"><img src="img/007.jpg"></div></div>`,
           answers: [
             {
@@ -350,7 +355,12 @@ const app = new Vue({
           type: 'stage',
           index: 9,
           sos: false,
-          text: `<span class="stage">II ЭТАП «Полный вперёд!» <br> 10 - вопросов</span><img src="img/000v2.jpg">`,
+          text: `<div class="stage-container">
+                  <div class="stage-text"><span class="stage">II ЭТАП «Полный вперёд!» <br> 10 - вопросов</span></div>
+                  <div class="stage-image">
+<!--                    <img src="img/100v2.jpg">-->
+                  </div>
+                 </div>`,
           answers: []
         },
         // 8 question
@@ -674,7 +684,9 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 15,
           sos: false,
-          text: `<div class="question-container"><div class="text-container w-70">Воинскому званию «матрос» на флоте соответствует воинское звание в армии?</div>
+          text: `<div class="question-container">
+                  <div class="text-container w-100">Воинскому званию «матрос» на флоте соответствует 
+                  воинское звание в армии?</div>
                  </div>`,
           answers: [
             {
@@ -737,7 +749,7 @@ const app = new Vue({
                        <div class="drag-question-grid__image"><img class="w-70" src="img/107-1.jpg"></div>
                        <div class="drag-question-grid__image"><img class="w-80" src="img/107-2.jpg"></div>
                        <div class="drag-question-grid__image"><img class="w-70" src="img/107-3.jpg"></div>
-                       <div class="drag-question-grid__image"><img class="w-70" src="img/107-4.jpg"></div>
+                       <div class="drag-question-grid__image"><img class="w-75" src="img/107-4.jpg"></div>
                     </div></div>`,
           answers: [
             {
@@ -935,7 +947,12 @@ const app = new Vue({
           type: 'stage',
           index: 20,
           sos: false,
-          text: `<span class="stage">III ЭТАП «Морские узлы» <br> 10 - вопросов</span><img src="img/200.png">`,
+          text: `<div class="stage-container">
+                  <div class="stage-text"><span class="stage">III ЭТАП «Морские узлы» <br> 13 - вопросов</span></div>
+                  <div class="stage-image">
+                    <img src="img/200.gif">
+                  </div>
+                 </div>`,
           answers: []
         },
         // 18 question
@@ -1088,7 +1105,7 @@ const app = new Vue({
                        <div class="drag-question-grid__label"><span>Юпитер</span></div>
                        <div class="drag-question-grid__label"><span>Вулкан</span></div>
                        <div class="drag-question-grid__image"><img class="w-70" src="img/203-1.jpg"></div>
-                       <div class="drag-question-grid__image"><img class="w-80" src="img/203-2.jpg"></div>
+                       <div class="drag-question-grid__image"><img class="h-70" src="img/203-2.jpg"></div>
                        <div class="drag-question-grid__image"><img class="w-70" src="img/203-3.jpg"></div>
                        <div class="drag-question-grid__image"><img class="w-70" src="img/203-4.jpg"></div>
                     </div></div>`,
@@ -1701,10 +1718,10 @@ const app = new Vue({
                        <div class="drag-question-grid__label"><span>Галеон</span></div>
                        <div class="drag-question-grid__label"><span>Фрегат</span></div>
                        <div class="drag-question-grid__label"><span>Галера</span></div>
-                       <div class="drag-question-grid__image"><img src="img/206-1.jpg"></div>
-                       <div class="drag-question-grid__image"><img src="img/206-2.jpg"></div>
-                       <div class="drag-question-grid__image"><img src="img/206-3.jpg"></div>
-                       <div class="drag-question-grid__image"><img src="img/206-4.jpg"></div>
+                       <div class="drag-question-grid__image"><img class="w-80" src="img/206-1.jpg"></div>
+                       <div class="drag-question-grid__image"><img class="w-70" src="img/206-2.jpg"></div>
+                       <div class="drag-question-grid__image"><img class="w-70" src="img/206-3.jpg"></div>
+                       <div class="drag-question-grid__image"><img class="w-90" src="img/206-4.jpg"></div>
                     </div>
                  </div>`,
           correct: [
@@ -1838,11 +1855,11 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 31,
           sos: false,
-          text: `<div class="question-container"><div class="text-container w-50">Нижняя горизонтальная 
+          text: `<div class="question-container"><div class="text-container w-60">Нижняя горизонтальная 
                 балка или балки, проходящие посередине днища судна от носовой до кормовой 
                 его оконечности, и служащие для обеспечения прочности корпуса судна и обеспечения 
                 остойчивости называется:</div>
-                <div class="image-container w-50"><img src="img/208.jpg"></div></div>`,
+                <div class="image-container w-40"><img src="img/208.jpg"></div></div>`,
           answers: [
             {
               id: 1,
@@ -1863,17 +1880,17 @@ const app = new Vue({
             {
               id: 3,
               text: 'киль',
-              correct: false,
+              correct: true,
               classes: {
-                incorrect: false
+                correct: false
               }
             },
             {
               id: 4,
               text: 'куль',
-              correct: true,
+              correct: false,
               classes: {
-                correct: false
+                incorrect: false
               }
             }
           ]
@@ -1931,9 +1948,9 @@ const app = new Vue({
             {
               id: 1,
               text: 'жилое помещение для команды корабля.',
-              correct: false,
+              correct: true,
               classes: {
-                incorrect: false
+                correct: false
               }
             },
             {
@@ -1947,9 +1964,9 @@ const app = new Vue({
             {
               id: 3,
               text: 'способ ведения боя',
-              correct: true,
+              correct: false,
               classes: {
-                correct: false
+                incorrect: false
               }
             },
             {
@@ -1967,7 +1984,12 @@ const app = new Vue({
           type: 'stage',
           index: 33,
           sos: false,
-          text: `<span class="stage">ФИНАЛ «Попутного ветра!» <br> 3 - вопроса</span>`,
+          text: `<div class="stage-container">
+                  <div class="stage-text"><span class="stage">ФИНАЛ «Попутного ветра!» <br> 3 - вопроса</span></div>
+                  <div class="stage-image">
+<!--                    <img src="img/100v2.jpg">-->
+                  </div>
+                 </div>`,
           answers: []
         },
         // 29 question
@@ -1975,9 +1997,9 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 34,
           sos: false,
-          text: `<div class="question-container"><div class="text-container w-50">Участвовал в Крымской войне, 
+          text: `<div class="question-container"><div class="text-container w-60">Участвовал в Крымской войне, 
                 оборонял Севастополь, командовал батареей на 4-м бастионе:</div>
-                <div class="image-container w-50"><img src="img/301.png"></div></div>`,
+                <div class="image-container w-40"><img src="img/301.png"></div></div>`,
           answers: [
             {
               id: 1,
@@ -2020,7 +2042,7 @@ const app = new Vue({
           sos: false,
           text: `<div class="question-container"><div class="text-container w-50">Звуковой сигнал 
                 маяка применялся:</div>
-                <div class="image-container w-50"><img src="img/301.png"></div></div>`,
+                <div class="image-container w-50"><img src="img/302.jpg"></div></div>`,
           answers: [
             {
               id: 1,
@@ -2061,9 +2083,9 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 36,
           sos: false,
-          text: `<div class="question-container"><div class="text-container w-50">3. Какое значение 
+          text: `<div class="question-container"><div class="text-container w-60">3. Какое значение 
                 имеет выражение «Семь футов под килем»? </div>
-                <div class="image-container w-50"><img src="img/303.jpg"></div></div>`,
+                <div class="image-container w-40"><img src="img/303.jpg"></div></div>`,
           answers: [
             {
               id: 1,
@@ -2096,18 +2118,22 @@ const app = new Vue({
               classes: {
                 incorrect: false
               }
-            },
-            // end video
-            {
-              type: 'stage',
-              index: 37,
-              sos: false,
-              text: `<video width="400" height="300" controls="controls">
-                       <source src="video/final.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-                    </video>`,
-              answers: []
-            },
+            }
           ]
+        },
+        // end video
+        {
+          type: 'stage',
+          index: 37,
+          sos: false,
+          text: `<div class="stage-container">
+                      <div class="video-container">
+                       <video width="640" height="531" controls="controls" autoplay>
+                         <source src="video/final.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                       </video>
+                      </div>
+                     </div>`,
+          answers: []
         }
       ],
       currentQuestion: 0,
@@ -2137,30 +2163,47 @@ const app = new Vue({
     },
     isSosButtonVisible() {
       return !_.isNil(this.questions[this.currentQuestion].sos) && this.questions[this.currentQuestion].sos
+    },
+    correctAnswers() {
+      let i = 0
+      this.answers.forEach(function (item) {
+        if(item) i++
+      })
+      return i
+    },
+    incorrectAnswers() {
+      let i = 0
+      this.answers.forEach(function (item) {
+        if(!item) i++
+      })
+      return i
     }
   },
   watch: {
-    typeFinished: function(val, oldVal) {
-      if(val && val !== oldVal) {
+    typeFinished: function (val, oldVal) {
+      if (val && val !== oldVal) {
         this.type(this, this.sub, 1, this.subTitle, 20)
       } else {
         this.startButtonVisible = true
       }
     },
     currentQuestion: function (val, oldVal) {
-      if(val === 0) {
+      if (val === 0) {
         this.prevVisible = false
       }
-      if(val === this.questions.length - 1) {
+      this.classes.showDraggableAnswer['hide'] = true
+      if (val === this.questions.length - 1) {
         this.nextVisible = false
       }
-      if(!_.isNil(this.answers[this.currentQuestion])) {
+      if (!_.isNil(this.answers[this.currentQuestion])) {
         this.preventAnswers = true
+        this.classes.showDraggableAnswer['hide'] = false
       }
       this.showDraggableAnswer = false
+
     },
     nextVisible: function (val, oldVal) {
-      if(this.currentQuestion === this.questions.length - 1) {
+      if (this.currentQuestion === this.questions.length - 1) {
         this.nextVisible = false
       }
     }
@@ -2174,10 +2217,10 @@ const app = new Vue({
       this.subTitle.text = ''
       this.type(this, this.main, 1, this.mainTitle, 60)
     },
-    playHandle(){
+    playHandle() {
       this.start()
       this.classes.splashScreen['hide'] = true
-      if(!this.muted) {
+      if (!this.muted) {
         playAudio(this.bgmAudio)
         playAudio('audioMorse')
       }
@@ -2188,7 +2231,9 @@ const app = new Vue({
     type(ctx, text, i, target, speed) {
       target.text = text.substr(0, i++)
       if (i <= text.length) {
-        setTimeout(() => { ctx.type(ctx, text, i, target, speed) }, speed)
+        setTimeout(() => {
+          ctx.type(ctx, text, i, target, speed)
+        }, speed)
       } else {
         ctx.typeFinished = !ctx.typeFinished
       }
@@ -2198,7 +2243,7 @@ const app = new Vue({
       let a = document.getElementById(this.bgmAudio)
       a.muted = this.muted
 
-      if(!this.muted) {
+      if (!this.muted) {
         playAudio(this.bgmAudio)
         playAudio('audioMorse')
       }
@@ -2209,28 +2254,28 @@ const app = new Vue({
       stopAudio('audioMorse')
     },
     answerClickHandle(val, id) {
-      if(!this.preventAnswers) {
+      if (!this.preventAnswers) {
         this.answers.push(val)
         this.questions[this.currentQuestion].answers.forEach(function (item) {
           for (let key of Object.keys(item.classes)) {
             item.classes[key] = !item.classes[key]
           }
-          if(item.id === id) {
+          if (item.id === id) {
             item.classes['selected'] = true
           }
         })
       }
-      if(val && !this.preventAnswers) {
+      if (val && !this.preventAnswers) {
         this.totalScore++
         playAudio('audioSuccess')
       } else {
-         if (!this.preventAnswers) playAudio('audioFail')
+        if (!this.preventAnswers) playAudio('audioFail')
       }
       this.preventAnswers = true
       this.nextVisible = true
     },
     dragAnswerHandle() {
-      if(!this.preventAnswers) {
+      if (!this.preventAnswers) {
         let answer = this.questions[this.currentQuestion].answers[0].items.map((item) => {
           return item.text
         })
@@ -2240,7 +2285,7 @@ const app = new Vue({
         })
 
         this.answers.push(answer.join(',') === correct.join(','))
-        if(answer.join(',') === correct.join(',')) {
+        if (answer.join(',') === correct.join(',')) {
           this.totalScore++
           playAudio('audioSuccess')
           this.questions[this.currentQuestion].answers[0].items.forEach(function (item) {
@@ -2249,8 +2294,8 @@ const app = new Vue({
         } else {
           playAudio('audioFail')
           this.classes.showDraggableAnswer['hide'] = false
-          for(let i = 0; i < answer.length; i++) {
-            if(answer[i] === this.questions[this.currentQuestion].correct[i].text) {
+          for (let i = 0; i < answer.length; i++) {
+            if (answer[i] === this.questions[this.currentQuestion].correct[i].text) {
               this.questions[this.currentQuestion].answers[0].items[i].classes.correct = true
             } else {
               this.questions[this.currentQuestion].answers[0].items[i].classes.incorrect = true
@@ -2262,7 +2307,7 @@ const app = new Vue({
       this.preventAnswers = true
     },
     prevHandle() {
-      if(this.currentQuestion > 0) {
+      if (this.currentQuestion > 0) {
         this.currentQuestion--
       } else {
         this.prevVisible = false
@@ -2272,7 +2317,7 @@ const app = new Vue({
       this.stopSounds()
     },
     nextHandle() {
-      if(this.currentQuestion < this.questions.length - 1) {
+      if (this.currentQuestion < this.questions.length - 1) {
         this.currentQuestion++
         this.nextVisible = this.questions[this.currentQuestion].type === 'stage'
       } else {
@@ -2289,16 +2334,24 @@ const app = new Vue({
     },
     sosButtonClickHandle() {
       // playAudio('audioSos')
+      if (!this.preventAnswers) {
+        this.answers.push(false)
+      }
       this.preventAnswers = true
       this.nextVisible = true
       this.viewerContent = this.questions[this.currentQuestion].sosText
       this.classes.viewer.slide = true
+      this.questions[this.currentQuestion].answers.forEach(function (item) {
+        for (let key of Object.keys(item.classes)) {
+          item.classes[key] = !item.classes[key]
+        }
+      })
     }
   }
 })
 
 function playAudio(audio) {
-  if(audio) {
+  if (audio) {
     let a = document.getElementById(audio)
 
     let onEnded = function (e) {
@@ -2311,7 +2364,7 @@ function playAudio(audio) {
 }
 
 function stopAudio(audio) {
-  if(audio) {
+  if (audio) {
     let a = document.getElementById(audio)
     a.pause()
     a.currentTime = 0
