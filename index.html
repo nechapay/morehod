@@ -61,7 +61,7 @@
         <a class="answer-button drag correct" @click="playHandle">Разрешить</a>
       </div>
     </div>
-    <div class="header">«МОРЕХОД»</div>
+    <div class="header"><h1 aria-label="МореХод"  v-if="isShowHeader"></h1></div>
     <div class="main">
       <div class="main__left-side">
         <div class="info-card">
@@ -86,7 +86,7 @@
     </div>
     <div class="footer">
       <div class="prev-button-container">
-        <a class="my-nav-button" @click="prevHandle" v-if="isPrevVisible"><i class="fa fa-chevron-left fa-5x"></i></a>
+        <a class="my-nav-button" @click="prevHandle" v-if="false"><i class="fa fa-chevron-left fa-5x"></i></a>
       </div>
       <div class="answers-container">
         <div class="answers-grid" v-if="questions[currentQuestion].type === 'oneOutFour'">

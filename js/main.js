@@ -41,12 +41,13 @@ const app = new Vue({
           type: 'stage',
           index: 1,
           sos: false,
-          text: `<div class="stage-container">
-                  <div class="stage-text"><span class="stage">I ЭТАП «Поднять якорь!»<br>7 - вопросов</span></div>
-                  <div class="stage-image">
+          text: `<div class="stage-container fill">
+                  <div class="stage-text"><span class="stage">I ЭТАП «Поднять якорь!»<br>7 вопросов</span></div>
+                  <div class="stage-image fill">
                     <img src="img/000v2.jpg">
                   </div>
                  </div>`,
+          score: 0,
           answers: []
         },
         // 1st question
@@ -54,6 +55,7 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 2,
           sos: false,
+          score: 1,
           text: `<div class="question-container"><div class="text-container w-70">Слово «матро́с» заимствовано 
           из голландского языка, где matroos восходит к французскому matelot — «матрос», 
           которое снова возвращает нас к голландскому matten-noot («товарищ по «…»). 
@@ -98,6 +100,7 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 3,
           sos: false,
+          score: 1,
           text: `<div class="question-container"><div class="text-container w-60">Что означает выражение «Бить склянки»?</div>
                 <div class="image-container w-40"><img src="img/002.jpg"></div></div>`,
           answers: [
@@ -140,6 +143,7 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 4,
           sos: false,
+          score: 1,
           text: `<div class="question-container"><div class="text-container w-50">«Бригантина» - это…</div>
                 <div class="image-container w-50"><img src="img/003.jpg"></div></div>`,
           answers: [
@@ -182,6 +186,7 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 5,
           sos: false,
+          score: 1,
           text: `<div class="question-container"><div class="text-container w-60">Выбери 
                 верное написание слова: «Вахтенный матрос на баке, наблюдающий за всем происходящим в море впереди 
                 по курсу судна»:</div>
@@ -189,7 +194,7 @@ const app = new Vue({
           answers: [
             {
               id: 1,
-              text: 'вперет смотрящий',
+              text: 'вперед смотрящий',
               correct: false,
               classes: {
                 incorrect: false
@@ -226,6 +231,7 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 6,
           sos: false,
+          score: 1,
           text: `<div class="question-container"><div class="text-container w-70">Выбери верное написание слова: 
                 «Все снасти на судне, служащие для укрепления рангоута и для управления им и 
                 парусами, называются»:</div>
@@ -270,6 +276,7 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 7,
           sos: false,
+          score: 1,
           text: `<div class="question-container"><div class="text-container w-70">Слово «юнга» переводится с 
                 немецкого языка (Junge) как:</div>
                 <div class="image-container w-30"><img src="img/006.gif"></div></div>`,
@@ -313,6 +320,7 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 8,
           sos: false,
+          score: 1,
           text: `<div class="question-container"><div class="text-container w-70">Подберите к 
                 слову «шкипер» синоним:</div><div class="image-container w-30"><img src="img/007.jpg"></div></div>`,
           answers: [
@@ -355,10 +363,11 @@ const app = new Vue({
           type: 'stage',
           index: 9,
           sos: false,
-          text: `<div class="stage-container">
-                  <div class="stage-text"><span class="stage">II ЭТАП «Полный вперёд!» <br> 10 - вопросов</span></div>
-                  <div class="stage-image">
-<!--                    <img src="img/100v2.jpg">-->
+          score: 0,
+          text: `<div class="stage-container fill">
+                  <div class="stage-text"><span class="stage">II ЭТАП «Полный вперёд!»<br>10 вопросов</span></div>
+                  <div class="stage-image fill">
+                    <img src="img/100.jpg">
                   </div>
                  </div>`,
           answers: []
@@ -368,8 +377,11 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 10,
           sos: false,
-          text: `<div class="question-container"><div class="text-container w-90">Российский военно-морской 
-                флот основан в …</div></div>`,
+          score: 1,
+          text: `<div class="question-container"><div class="text-container w-60">Российский военно-морской 
+                флот основан в …</div>
+                <div class="image-container w-40"><img src="img/101.jpg"></div>
+                </div>`,
           answers: [
             {
               id: 1,
@@ -410,7 +422,10 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 11,
           sos: false,
-          text: `<div class="question-container"><div class="text-container w-70">Каким флот был изначально:</div></div>`,
+          score: 1,
+          text: `<div class="question-container"><div class="text-container w-50">Каким флот был изначально:</div>
+                    <div class="image-container w-50"><img src="img/102.jpg"></div>
+                </div>`,
           answers: [
             {
               id: 1,
@@ -451,9 +466,10 @@ const app = new Vue({
           type: 'dragDrop',
           index: 12,
           sos: false,
+          score: 1,
           text: `<div class="question-container--drag">
                     <div class="drag-text-container">Найдите соответствие:</div>
-                    <div class="drag-question-grid">
+                    <div class="drag-question-grid fill">
                        <div class="drag-question-grid__label"><span>A</span></div>
                        <div class="drag-question-grid__label"><span>Б</span></div>
                        <div class="drag-question-grid__label"><span>В</span></div>
@@ -552,6 +568,7 @@ const app = new Vue({
           type: 'dragDrop',
           index: 13,
           sos: false,
+          score: 1,
           text: `<div class="question-container"><div class="text-container w-60">Расположите 
                 воинские звания по старшинству:</div><div class="image-container w-40"><img src="img/104.jpg"></div></div>`,
           correct: [
@@ -642,6 +659,7 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 14,
           sos: false,
+          score: 1,
           text: `<div class="question-container"><div class="text-container w-70">Представленный погон указывает на воинское звание:</div>
                  <div class="image-container w-30"><img src="img/svg/Russia-Navy-OF-4-2010.svg"></div></div>`,
           answers: [
@@ -684,9 +702,11 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 15,
           sos: false,
+          score: 1,
           text: `<div class="question-container">
-                  <div class="text-container w-100">Воинскому званию «матрос» на флоте соответствует 
+                  <div class="text-container w-60">Воинскому званию «матрос» на флоте соответствует 
                   воинское звание в армии?</div>
+                  <div class="image-container w-40"><img src="img/106.png"></div>
                  </div>`,
           answers: [
             {
@@ -728,6 +748,7 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 16,
           sos: true,
+          score: 2,
           sosText: '«Кроме того, что адмирал Колчак был вождем Белого движения и Верховным ' +
             'правителем России, он был еще и выдающимся ученым-океанографом, одним из крупнейших ' +
             'полярных исследователей, участником трех полярных экспедиций, а также автором монографии ' +
@@ -790,6 +811,7 @@ const app = new Vue({
         {
           type: 'oneOutFour',
           index: 17,
+          score: 2,
           sosText: '«Aдмиpaлтeйcтвo aнглийcкoгo флoтa издaлo пpикaз, дaтиpoвaнный 1776 гoдoм, в кoтopoм ' +
             'пpeдпиcывaлocь в oбязaтeльнoм пopядкe вo вce кaнaты гocyдapcтвeннoй бpитaнcкoй флoтилии ' +
             'вплeтaть ниткy кpacнoгo цвeтa. Taким знaкoм былo peшeнo oтличaть гocyдapcтвeнныe кopaбли oт ' +
@@ -808,7 +830,8 @@ const app = new Vue({
                  Появление выражения <b>«проходит красной нитью»</b> имеет интересную историю. Онo oзнaчaeт 
                  «нeчтo ocнoвнoe, вeдyщee, глaвнoe». Bыpaжeниe <b>«пpoxoдит кpacнoй нитью»</b> мoжнo нaйти 
                  ceгoдня вo мнoгиx языкax Eвpoпы. Ecли изyчaть пpoиcxoждeниe дaннoй фpaзы, иcтoки пpивeдyт нac к…</div>
-                 <div class="image-container w-40"><img src="img/109.jpg"></div></div>`,
+                 <div class="image-container w-40"><img src="img/108.jpg"></div>
+                 </div>`,
           answers: [
             {
               id: 1,
@@ -849,7 +872,10 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 18,
           sos: false,
-          text: `<div class="question-container"><div class="text-container w-100">Как называют бывалого моряка:</div></div>`,
+          score: 1,
+          text: `<div class="question-container"><div class="text-container w-60">Как называют бывалого моряка:</div>
+                  <div class="image-container w-40"><img src="img/109.jpg"></div>
+                </div>`,
           answers: [
             {
               id: 1,
@@ -903,10 +929,11 @@ const app = new Vue({
             'находящегося под юрисдикцией РФ, составляет около 5 млн км², что составляет около 1/5 площади шельфа ' +
             'Мирового океана».',
           sos: true,
-          text: `<div class="question-container"><div class="text-container w-70">Каким образом в международном  
+          score: 2,
+          text: `<div class="question-container"><div class="text-container w-60">Каким образом в международном  
                 праве Конвенции ООН по морскому праву  определяется протяжённость <b>континентального 
                 шельфа Российской Федерации:</b></div>
-                <div class="image-container w-30"><img src="img/110.png"></div></div>`,
+                <div class="image-container w-40"><img src="img/110.png"></div></div>`,
           answers: [
             {
               id: 1,
@@ -947,9 +974,10 @@ const app = new Vue({
           type: 'stage',
           index: 20,
           sos: false,
-          text: `<div class="stage-container">
-                  <div class="stage-text"><span class="stage">III ЭТАП «Морские узлы» <br> 13 - вопросов</span></div>
-                  <div class="stage-image">
+          score: 0,
+          text: `<div class="stage-container  fill">
+                  <div class="stage-text"><span class="stage">III ЭТАП «Морские узлы»<br>13 вопросов</span></div>
+                  <div class="stage-image  fill">
                     <img src="img/200.gif">
                   </div>
                  </div>`,
@@ -960,14 +988,16 @@ const app = new Vue({
           type: 'dragDrop',
           index: 21,
           sos: false,
+          score: 1,
           text: `<div class="question-container">
-                    <div class="text-container">Соотнесите фразеологические обороты с их значениями:<br>
+                    <div class="text-container w-60">Соотнесите фразеологические обороты с их значениями:<br>
                     <hr>
                     А. Разбираться в сложном сплетении причин, стечении обстоятельств.<br>
                     Б. Смело, решительно и сразу же разрешать какую-либо очень трудную задачу, 
                     находить посредством чего-либо выход из трудной ситуации)<br>
                     В. Постараться хорошенько запомнить что-либо.<br>
                     Г. Подчинить себе кого-либо, заставить быть покорным.</div>
+                    <div class="image-container w-40"><img src="img/200.png"></div>
                  </div>`,
           correct: [
             {
@@ -1057,7 +1087,10 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 22,
           sos: false,
-          text: `<div class="question-container"><div class="text-container w-100">Продолжите выражение «Плавали – …!»:</div></div>`,
+          score: 1,
+          text: `<div class="question-container"><div class="text-container w-60">Продолжите выражение «Плавали – …!»:</div>
+                  <div class="image-container w-40"><img src="img/202.jpg">
+                </div>`,
           answers: [
             {
               id: 1,
@@ -1098,6 +1131,7 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 23,
           sos: false,
+          score: 1,
           text: `<div class="question-container--drag"><div class="drag-text-container">Бог морей  в древнеримской мифологии:</div>
                 <div class="drag-question-grid">
                        <div class="drag-question-grid__label"><span>Марс</span></div>
@@ -1149,8 +1183,10 @@ const app = new Vue({
           type: 'dragDrop',
           index: 24,
           sos: false,
+          score: 1,
           text: `<div class="question-container">
-                    <div class="text-container">Собери поговорку</div>
+                    <div class="text-container w-40">Собери поговорку</div>
+                    <div class="image-container w-60"><img src="img/204.png">
                  </div>`,
           correct: [
             {
@@ -1257,8 +1293,10 @@ const app = new Vue({
           type: 'dragDrop',
           index: 25,
           sos: false,
+          score: 1,
           text: `<div class="question-container">
-                    <div class="text-container">Собери поговорку</div>
+                    <div class="text-container w-40">Собери поговорку</div>
+                    <div class="image-container w-60"><img src="img/204.png">
                  </div>`,
           correct: [
             {
@@ -1365,8 +1403,10 @@ const app = new Vue({
           type: 'dragDrop',
           index: 26,
           sos: false,
+          score: 1,
           text: `<div class="question-container">
-                    <div class="text-container">Собери поговорку</div>
+                    <div class="text-container w-40">Собери поговорку</div>
+                    <div class="image-container w-60"><img src="img/204.png">
                  </div>`,
           correct: [
             {
@@ -1509,8 +1549,10 @@ const app = new Vue({
           type: 'dragDrop',
           index: 27,
           sos: false,
+          score: 1,
           text: `<div class="question-container">
-                    <div class="text-container">Собери поговорку</div>
+                    <div class="text-container w-40">Собери поговорку</div>
+                    <div class="image-container w-60"><img src="img/204.png">
                  </div>`,
           correct: [
             {
@@ -1653,8 +1695,11 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 28,
           sos: false,
-          text: `<div class="question-container"><div class="text-container w-100">Какое море не относится к бассейну 
-                Северного Ледовитого океана?</div></div>`,
+          score: 1,
+          text: `<div class="question-container"><div class="text-container w-60">Какое море не относится к бассейну 
+                Северного Ледовитого океана?</div>
+                <div class="image-container w-40"><img src="img/205.jpg">
+                </div>`,
           answers: [
             {
               id: 1,
@@ -1695,6 +1740,7 @@ const app = new Vue({
           type: 'dragDrop',
           index: 29,
           sos: false,
+          score: 1,
           text: `<div class="question-container--drag">
                     <div class="drag-text-container fs-2">Подберите название к определениям:
                     <hr>
@@ -1703,14 +1749,14 @@ const app = new Vue({
                     такие нововведения, как таран и «система двойного весельного ряда».<br>
                     Б: ... — это крупногабаритный деревянный многопалубный парусник 16−18 столетия с довольно 
                     большим артиллерийским вооружением, который использовался в торговых и военных целях. 
-                    Свою популярность галеоны получили как судна, перевозившие сокровища Испании и в битве 
+                    Свою популярность ... получили как судна, перевозившие сокровища Испании и в битве 
                     Великой Армады, которая произошла в 1589 г.<br>
                     В: ... являлась любимым судном пиратов. Боевой силы вполне хватало для захвата 
                     торговых кораблей, а хорошая маневренность и быстроходность помогала уйти от погони. 
                     Если кто и мог преодолеть сложные места между рифами, то это только...<br>
                     Г: ... - боевое трехмачтовое судно с полным парусным оснащением и одной палубой для орудий. 
                     Это один из самых разнообразных по своим характеристикам типов парусников. Происхождение 
-                    фрегаты начали от быстроходных и легких судов, применявшихся для плавания в проливе Ла-Манш 
+                    ... начали от быстроходных и легких судов, применявшихся для плавания в проливе Ла-Манш 
                     примерно в конце 17 столетия.
                     </div>
                     <div class="drag-question-grid">
@@ -1812,6 +1858,7 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 30,
           sos: false,
+          score: 1,
           text: `<div class="question-container"><div class="text-container w-50">Что не использовалось 
                 при общении кораблей друг с другом:</div>
                 <div class="image-container w-50"><img src="img/207.jpg"></div></div>`,
@@ -1855,6 +1902,7 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 31,
           sos: false,
+          score: 1,
           text: `<div class="question-container"><div class="text-container w-60">Нижняя горизонтальная 
                 балка или балки, проходящие посередине днища судна от носовой до кормовой 
                 его оконечности, и служащие для обеспечения прочности корпуса судна и обеспечения 
@@ -1900,7 +1948,9 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 32,
           sos: false,
-          text: `<div class="question-container"><div class="text-container w-100">Скорость корабля измеряется</div>
+          score: 1,
+          text: `<div class="question-container"><div class="text-container w-60">Скорость корабля измеряется</div>
+                  <div class="image-container w-40"><img src="img/209.png"></div>
                 </div>`,
           answers: [
             {
@@ -1942,7 +1992,9 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 32,
           sos: false,
-          text: `<div class="question-container"><div class="text-container w-100">Рубка на корабле – это…</div>
+          score: 1,
+          text: `<div class="question-container"><div class="text-container w-30">Кубрик на корабле – это…</div>
+                  <div class="image-container w-70"><img src="img/210.jpg"></div>
                 </div>`,
           answers: [
             {
@@ -1984,10 +2036,11 @@ const app = new Vue({
           type: 'stage',
           index: 33,
           sos: false,
-          text: `<div class="stage-container">
-                  <div class="stage-text"><span class="stage">ФИНАЛ «Попутного ветра!» <br> 3 - вопроса</span></div>
-                  <div class="stage-image">
-<!--                    <img src="img/100v2.jpg">-->
+          score: 0,
+          text: `<div class="stage-container  fill">
+                  <div class="stage-text"><span class="stage">ФИНАЛ<br> 3 вопроса</span></div>
+                  <div class="stage-image  fill">
+                    <img src="img/300.jpg">
                   </div>
                  </div>`,
           answers: []
@@ -1997,9 +2050,10 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 34,
           sos: false,
-          text: `<div class="question-container"><div class="text-container w-60">Участвовал в Крымской войне, 
+          score: 1,
+          text: `<div class="question-container"><div class="text-container w-50">Участвовал в Крымской войне, 
                 оборонял Севастополь, командовал батареей на 4-м бастионе:</div>
-                <div class="image-container w-40"><img src="img/301.png"></div></div>`,
+                <div class="image-container w-50"><img src="img/301.png"></div></div>`,
           answers: [
             {
               id: 1,
@@ -2040,6 +2094,7 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 35,
           sos: false,
+          score: 1,
           text: `<div class="question-container"><div class="text-container w-50">Звуковой сигнал 
                 маяка применялся:</div>
                 <div class="image-container w-50"><img src="img/302.jpg"></div></div>`,
@@ -2083,6 +2138,7 @@ const app = new Vue({
           type: 'oneOutFour',
           index: 36,
           sos: false,
+          score: 1,
           text: `<div class="question-container"><div class="text-container w-60">3. Какое значение 
                 имеет выражение «Семь футов под килем»? </div>
                 <div class="image-container w-40"><img src="img/303.jpg"></div></div>`,
@@ -2126,7 +2182,8 @@ const app = new Vue({
           type: 'stage',
           index: 37,
           sos: false,
-          text: `<div class="stage-container">
+          score: 0,
+          text: `<div class="stage-container fill">
                       <div class="video-container">
                        <video width="640" height="531" controls="controls" autoplay>
                          <source src="video/final.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
@@ -2142,7 +2199,12 @@ const app = new Vue({
       prevVisible: false,
       nextVisible: true,
       preventAnswers: false,
-      showDraggableAnswer: false
+      showDraggableAnswer: false,
+      showHeader: false,
+      counters: {
+        correct: 0,
+        incorrect: 0
+      }
     }
   },
   computed: {
@@ -2165,18 +2227,13 @@ const app = new Vue({
       return !_.isNil(this.questions[this.currentQuestion].sos) && this.questions[this.currentQuestion].sos
     },
     correctAnswers() {
-      let i = 0
-      this.answers.forEach(function (item) {
-        if(item) i++
-      })
-      return i
+      return this.counters.correct
     },
     incorrectAnswers() {
-      let i = 0
-      this.answers.forEach(function (item) {
-        if(!item) i++
-      })
-      return i
+      return this.counters.incorrect
+    },
+    isShowHeader() {
+      return this.showHeader
     }
   },
   watch: {
@@ -2191,16 +2248,17 @@ const app = new Vue({
       if (val === 0) {
         this.prevVisible = false
       }
-      this.classes.showDraggableAnswer['hide'] = true
-      if (val === this.questions.length - 1) {
-        this.nextVisible = false
-      }
+      this.preventAnswers = false
       if (!_.isNil(this.answers[this.currentQuestion])) {
         this.preventAnswers = true
         this.classes.showDraggableAnswer['hide'] = false
       }
+      this.classes.showDraggableAnswer['hide'] = true
+      this.nextVisible = this.preventAnswers || this.questions[this.currentQuestion].type === 'stage'
+      if (val === this.questions.length - 1) {
+        this.nextVisible = false
+      }
       this.showDraggableAnswer = false
-
     },
     nextVisible: function (val, oldVal) {
       if (this.currentQuestion === this.questions.length - 1) {
@@ -2209,7 +2267,6 @@ const app = new Vue({
     }
   },
   mounted() {
-
   },
   methods: {
     start() {
@@ -2252,10 +2309,11 @@ const app = new Vue({
       this.classes.startPage['hide'] = true
       stopAudio(this.bgmAudio)
       stopAudio('audioMorse')
+      this.showHeader = true
     },
     answerClickHandle(val, id) {
       if (!this.preventAnswers) {
-        this.answers.push(val)
+        this.answers[this.currentQuestion] = val
         this.questions[this.currentQuestion].answers.forEach(function (item) {
           for (let key of Object.keys(item.classes)) {
             item.classes[key] = !item.classes[key]
@@ -2264,12 +2322,14 @@ const app = new Vue({
             item.classes['selected'] = true
           }
         })
-      }
-      if (val && !this.preventAnswers) {
-        this.totalScore++
-        playAudio('audioSuccess')
-      } else {
-        if (!this.preventAnswers) playAudio('audioFail')
+        if (val) {
+          this.totalScore += this.questions[this.currentQuestion].score
+          this.counters.correct++
+          playAudio('audioSuccess')
+        } else {
+          this.counters.incorrect++
+          if (!this.preventAnswers) playAudio('audioFail')
+        }
       }
       this.preventAnswers = true
       this.nextVisible = true
@@ -2286,12 +2346,16 @@ const app = new Vue({
 
         this.answers.push(answer.join(',') === correct.join(','))
         if (answer.join(',') === correct.join(',')) {
-          this.totalScore++
+          this.answers[this.currentQuestion] = true
+          this.counters.correct++
+          this.totalScore += this.questions[this.currentQuestion].score
           playAudio('audioSuccess')
           this.questions[this.currentQuestion].answers[0].items.forEach(function (item) {
             item.classes.correct = true
           })
         } else {
+          this.answers[this.currentQuestion] = true
+          this.counters.incorrect++
           playAudio('audioFail')
           this.classes.showDraggableAnswer['hide'] = false
           for (let i = 0; i < answer.length; i++) {
@@ -2312,8 +2376,6 @@ const app = new Vue({
       } else {
         this.prevVisible = false
       }
-      this.nextVisible = true
-      this.preventAnswers = true
       this.stopSounds()
     },
     nextHandle() {
@@ -2325,7 +2387,6 @@ const app = new Vue({
       }
       this.prevVisible = true
       this.stopSounds()
-      this.preventAnswers = false
     },
     stopSounds() {
       stopAudio('audioSuccess')
@@ -2333,19 +2394,23 @@ const app = new Vue({
       stopAudio('audioSos')
     },
     sosButtonClickHandle() {
-      // playAudio('audioSos')
+      playAudio('audioSos')
       if (!this.preventAnswers) {
-        this.answers.push(false)
+        this.answers[this.currentQuestion] = false
+        this.counters.incorrect++
+        if (!_.isNil(this.answers[this.currentQuestion])) {
+          this.questions[this.currentQuestion].answers.forEach(function (item) {
+            for (let key of Object.keys(item.classes)) {
+              item.classes[key] = !item.classes[key]
+            }
+          })
+        }
       }
       this.preventAnswers = true
       this.nextVisible = true
       this.viewerContent = this.questions[this.currentQuestion].sosText
       this.classes.viewer.slide = true
-      this.questions[this.currentQuestion].answers.forEach(function (item) {
-        for (let key of Object.keys(item.classes)) {
-          item.classes[key] = !item.classes[key]
-        }
-      })
+
     }
   }
 })
