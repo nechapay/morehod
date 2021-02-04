@@ -86,7 +86,7 @@
     </div>
     <div class="footer">
       <div class="prev-button-container">
-        <a class="my-nav-button" @click="prevHandle" v-if="false"><i class="fa fa-chevron-left fa-5x"></i></a>
+        <a class="my-nav-button" @click="prevHandle" v-if="isPrevVisible"><i class="fa fa-chevron-left fa-5x"></i></a>
       </div>
       <div class="answers-container">
         <div class="answers-grid" v-if="questions[currentQuestion].type === 'oneOutFour'">

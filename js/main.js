@@ -56,14 +56,22 @@ const app = new Vue({
           index: 2,
           sos: false,
           score: 1,
-          text: `<div class="question-container"><div class="text-container w-70">Слово «матро́с» заимствовано 
-          из голландского языка, где matroos восходит к французскому matelot — «матрос», 
-          которое снова возвращает нас к голландскому matten-noot («товарищ по «…»). 
-          Что буквально означает это слово?</div><div class="image-container w-30"><img src="img/001.jpg"></div></div>`,
+          text: `<div class="question-container--drag"><div class="drag-text-container">Бог морей  в древнеримской мифологии:</div>
+                  <div class="drag-question-grid">
+                   <div class="drag-question-grid__label"><span>Марс</span></div>
+                   <div class="drag-question-grid__label"><span>Нептун</span></div>
+                   <div class="drag-question-grid__label"><span>Юпитер</span></div>
+                   <div class="drag-question-grid__label"><span>Вулкан</span></div>
+                   <div class="drag-question-grid__image"><img class="w-70" src="img/203-1.jpg"></div>
+                   <div class="drag-question-grid__image"><img class="h-70" src="img/203-2.jpg"></div>
+                   <div class="drag-question-grid__image"><img class="w-70" src="img/203-3.jpg"></div>
+                   <div class="drag-question-grid__image"><img class="w-70" src="img/203-4.jpg"></div>
+                  </div>
+                </div>`,
           answers: [
             {
               id: 1,
-              text: 'товарищ  по шлюпке',
+              text: 'Марс',
               correct: false,
               classes: {
                 incorrect: false
@@ -71,7 +79,7 @@ const app = new Vue({
             },
             {
               id: 2,
-              text: 'товарищ  по койке',
+              text: 'Нептун',
               correct: true,
               classes: {
                 correct: false
@@ -79,7 +87,7 @@ const app = new Vue({
             },
             {
               id: 3,
-              text: 'товарищ по игре в кости',
+              text: 'Юпитер',
               correct: false,
               classes: {
                 incorrect: false
@@ -87,7 +95,7 @@ const app = new Vue({
             },
             {
               id: 4,
-              text: 'товарищ по кубрику',
+              text: 'Вулкан',
               correct: false,
               classes: {
                 incorrect: false
@@ -1132,21 +1140,14 @@ const app = new Vue({
           index: 23,
           sos: false,
           score: 1,
-          text: `<div class="question-container--drag"><div class="drag-text-container">Бог морей  в древнеримской мифологии:</div>
-                <div class="drag-question-grid">
-                       <div class="drag-question-grid__label"><span>Марс</span></div>
-                       <div class="drag-question-grid__label"><span>Нептун</span></div>
-                       <div class="drag-question-grid__label"><span>Юпитер</span></div>
-                       <div class="drag-question-grid__label"><span>Вулкан</span></div>
-                       <div class="drag-question-grid__image"><img class="w-70" src="img/203-1.jpg"></div>
-                       <div class="drag-question-grid__image"><img class="h-70" src="img/203-2.jpg"></div>
-                       <div class="drag-question-grid__image"><img class="w-70" src="img/203-3.jpg"></div>
-                       <div class="drag-question-grid__image"><img class="w-70" src="img/203-4.jpg"></div>
-                    </div></div>`,
+          text: `<div class="question-container"><div class="text-container w-70">Слово «матро́с» заимствовано 
+          из голландского языка, где matroos восходит к французскому matelot — «матрос», 
+          которое снова возвращает нас к голландскому matten-noot («товарищ по «…»). 
+          Что буквально означает это слово?</div><div class="image-container w-30"><img src="img/001.jpg"></div></div>`,
           answers: [
             {
               id: 1,
-              text: 'Марс',
+              text: 'товарищ  по шлюпке',
               correct: false,
               classes: {
                 incorrect: false
@@ -1154,7 +1155,7 @@ const app = new Vue({
             },
             {
               id: 2,
-              text: 'Нептун',
+              text: 'товарищ  по койке',
               correct: true,
               classes: {
                 correct: false
@@ -1162,7 +1163,7 @@ const app = new Vue({
             },
             {
               id: 3,
-              text: 'Юпитер',
+              text: 'товарищ по игре в кости',
               correct: false,
               classes: {
                 incorrect: false
@@ -1170,13 +1171,14 @@ const app = new Vue({
             },
             {
               id: 4,
-              text: 'Вулкан',
+              text: 'товарищ по кубрику',
               correct: false,
               classes: {
                 incorrect: false
               }
             }
           ]
+
         },
         // 21 question
         {
@@ -2249,11 +2251,11 @@ const app = new Vue({
         this.prevVisible = false
       }
       this.preventAnswers = false
+      this.classes.showDraggableAnswer['hide'] = true
       if (!_.isNil(this.answers[this.currentQuestion])) {
         this.preventAnswers = true
         this.classes.showDraggableAnswer['hide'] = false
       }
-      this.classes.showDraggableAnswer['hide'] = true
       this.nextVisible = this.preventAnswers || this.questions[this.currentQuestion].type === 'stage'
       if (val === this.questions.length - 1) {
         this.nextVisible = false
